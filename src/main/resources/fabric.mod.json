@@ -8,9 +8,9 @@
     "umollu, kuuhaku"
   ],
   "contact": {
-    "homepage": "TODO",
+    "homepage": "https://www.miraisoft.de/mc-fabric-ash2",
     "sources": "https://github.com/miraisoft-de/mc-fabric-ash",
-    "issues": "https://github.com/miraisoft-de/mc-fabric-ash/issues"
+    "issues": ""
   },
   "license": "MIT",
   "icon": "assets/ash2/icon.png",
@@ -27,9 +27,9 @@
     "ash2.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.14.8",
+    "fabricloader": ">=0.13.3",
     "fabric": "*",
-    "minecraft": "1.19.1",
+    "minecraft": "1.18.2",
     "java": ">=17"
   }
 }

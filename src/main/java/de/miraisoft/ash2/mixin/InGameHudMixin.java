@@ -10,7 +10,8 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.InGameHud;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
-import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.LightType;
@@ -136,8 +137,9 @@ public class InGameHudMixin {
 
 		BlockPos blockPos = new BlockPos(cameraEntity.getX(), cameraEntity.getBoundingBox().getMin(Direction.Axis.Y),
 				cameraEntity.getZ());
-		String biomeKey = client.world.getBiome(blockPos).getKey().get().getValue().toTranslationKey("biome");
-		String ashString = "Biome: " + Text.translatable(biomeKey).getString();
+		Identifier biomeIdentifier = client.world.getBiome(blockPos).getKey().get().getValue();
+		String biomeKey = "biome." + biomeIdentifier.getNamespace() + "." + biomeIdentifier.getPath();
+		String ashString = "Biome: " + new TranslatableText(biomeKey).getString();
 
 		client.textRenderer.drawWithShadow(matrixStack, ashString, TEXT_POS_X, textPosY, AshCommands.config.hudColor);
 		matrixStack.pop();
