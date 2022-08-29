@@ -20,6 +20,7 @@ public class AshCommands {
 	private static final String COMMAND_DIRECTION = "ash2toggledirection";
 	private static final String COMMAND_COLOR = "ash2color";
 	private static final String COMMAND_LIGHTLEVEL = "ash2togglelightlevel";
+	private static final String COMMAND_TIME = "ash2toggletime";
 	private static final String COMMAND_CONCISE_COORDS = "ash2toggleconcisecoords";
 	
 	private final static Logger logger = LogManager.getLogger(); 
@@ -86,6 +87,12 @@ public class AshCommands {
         
         commandDispatcher.register(ClientCommandManager.literal(COMMAND_LIGHTLEVEL).executes(context -> {
             config.showLightLevel = !config.showLightLevel;
+            AshMod.configManager.save();
+            return 1;
+        }));
+        
+        commandDispatcher.register(ClientCommandManager.literal(COMMAND_TIME).executes(context -> {
+            config.showTime = !config.showTime;
             AshMod.configManager.save();
             return 1;
         }));
