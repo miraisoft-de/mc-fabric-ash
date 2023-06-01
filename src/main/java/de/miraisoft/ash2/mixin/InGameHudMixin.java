@@ -69,8 +69,7 @@ public class InGameHudMixin {
 
 		if (AshCommands.config.showCoords) {
 			matrixStack.push();
-			BlockPos blockPos = new BlockPos((int) cameraEntity.getX(),
-					(int) cameraEntity.getBoundingBox().getMin(Direction.Axis.Y), (int) cameraEntity.getZ());
+			BlockPos blockPos =  cameraEntity.getBlockPos();
 			if (AshCommands.config.conciseCoords) {
 				String direction = "";
 				if (AshCommands.config.showDirection) {
