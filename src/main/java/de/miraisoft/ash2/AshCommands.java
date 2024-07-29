@@ -18,6 +18,7 @@ public class AshCommands {
 	private static final String COMMAND_BACKGROUND_COLOR = "ash2backgroundcolor";
 	private static final String COMMAND_LIGHTLEVEL = "ash2togglelightlevel";
 	private static final String COMMAND_TIME = "ash2toggletime";
+	private static final String COMMAND_BIOME = "ash2togglebiome";
 	private static final String COMMAND_CONCISE_COORDS = "ash2toggleconcisecoords";
 	private static final String COMMAND_TOGGLE_BACKGROUND = "ash2togglebackground";
 
@@ -111,6 +112,15 @@ public class AshCommands {
 			dispatcher.register(ClientCommandManager.literal(COMMAND_TIME)
 	            .executes(context -> {
                 config.showTime = !config.showTime;
+                AshMod.configManager.save();
+                return 1;
+            }));
+		});
+		
+		ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+			dispatcher.register(ClientCommandManager.literal(COMMAND_BIOME)
+	            .executes(context -> {
+                config.showBiome = !config.showBiome;
                 AshMod.configManager.save();
                 return 1;
             }));

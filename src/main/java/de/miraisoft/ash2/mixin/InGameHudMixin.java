@@ -10,6 +10,7 @@ import de.miraisoft.ash2.DirectionEnum;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.hud.InGameHud;
+import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.entity.Entity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
@@ -29,8 +30,8 @@ public class InGameHudMixin {
 	private static final int TEXT_POS_X = PADDING;
 	private int textPosY = PADDING;
 
-	@Inject(at = @At("TAIL"), method = "render")
-	public void render(DrawContext drawContext, float tickDelta, CallbackInfo info) {
+	@Inject(at = @At("HEAD"), method = "render")
+	public void render(DrawContext drawContext, RenderTickCounter tickCounter, CallbackInfo info) {
 		MinecraftClient client = MinecraftClient.getInstance();
 		Entity cameraEntity = client.getCameraEntity();
 
