@@ -1,5 +1,8 @@
 # ASH 2 - Another Sophisticated HUD
 
+#### This GitHub repository is :diamonds: obsolete :diamonds:. Future development can be found at CodeBerg:
+#### https://codeberg.org/miraisoft-de/mc-fabric-ash
+
 ASH 2 - Another Sophisticated HUD with FPS count, coordinates, (block) light level, biome and time
 
 A Fabric mod for Minecraft
